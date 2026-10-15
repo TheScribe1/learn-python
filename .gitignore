@@ -1,0 +1,23 @@
+# Ignore everything in the root directory
+/*
+
+# Allow the .gitignore file
+!/.gitignore
+
+# Ignore Python cache files and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Allow only the ten numbered folders
+!/1 Function & Variable/
+!/2 Condition/
+!/3 Loops/
+!/4 Exceptions/
+!/5 Library/
+!/6 Unit Tests/
+!/7 File IO/
+!/8 Regular Expressions/
+!/9 OOP/
+!/10 Et Cetera/
