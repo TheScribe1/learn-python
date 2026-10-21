@@ -248,6 +248,147 @@
 
 
 
+                # datetime - module is used to work with dates and times
+
+
+
+
+
+
+# import datetime 
+
+# print("Current date and time: ", datetime.datetime.now())
+
+
+
+
+# from datetime import date
+
+# print("Today's date: ", date.today())
+# print("Today's date: ", datetime.date.today()) # same
+
+
+
+
+# from datetime import datetime
+
+# now = datetime.now()
+
+# print("Date: ", now.date())  # Date only
+# print("Time: ", now.time())  # Time only
+# print("Hour: ", now.year)
+# print("Month: ", now.month)
+# print("Day: ", now.day)
+# print("Hour: ", now.hour)
+# print("Minute: ", now.minute)
+# print("Second: ", now.second)
+
+
+
+
+
+# from datetime import datetime
+
+# now = datetime.now()
+
+# print("Weekday Short: ", now.strftime("%a")) 
+# print("Weekday Full: ", now.strftime("%A")) 
+
+# print("DD-MM-YYYY: ", now.strftime("%d-%m-%Y")) # strftime() to convert a datetime object into a formatted string
+# print("HH:MM:SS: ", now.strftime("%H:%M:%S"))
+# print("DD/MM/YYYY HH:MM:SS", now.strftime("%d/%m/%Y %I:%M %p")) # H- 24hour , I- 12hour, p- AM/PM
+
+
+
+
+# get the day of a month 
+# import datetime
+
+# d1 = datetime.datetime.now()
+# print("Day of month: " ,d1.strftime("%d"))
+
+# d2 = datetime.datetime(2026, 10, 15)
+# print("Day of month: ", d2.strftime("%d"))
+
+
+
+
+
+# Get the month name 
+# import datetime as dt
+
+# d1 = dt.datetime.now()
+# print("Month name: ", d1.strftime("%b"))
+
+# d2 = dt.datetime(2026, 10, 11)
+# print("Month name: ", d2.strftime("%B")) # Full
+
+
+
+
+
+# import datetime 
+
+
+# d1 = datetime.datetime.now()
+# print("Day number of the year: ", d1.strftime("%j"))
+# print("Week number of the year: ", d1.strftime("%U"))
+
+# d2 = datetime.datetime(2026, 10, 19, 16, 23, 33)
+# print("Day number of the year: ", d2.strftime("%j"))
+# print("Week number of the year: ", d2.strftime("%U"))
+
+
+
+
+
+
+# import datetime
+
+# dt1 = datetime.datetime(2026, 8, 10)
+# dt2 = datetime.datetime(2026,7, 10)
+
+# if(dt1 > dt2):
+#     print("Date1 is greater")
+# elif(dt1 < dt2):
+#     print("Date2 is greater")
+# else:
+#     print("Both date are equal")
+
+
+
+
+
+# import time as t
+
+# local_datetime = t.localtime() # local time of your country (UTC+6)
+# print("Local: ", local_datetime)
+# print("UTC: ", t.gmtime()) # UTC time
+
+# sec = t.time() # total number of seconds since January 1, 1970
+# print("Timestamp: ", sec)
+
+
+
+
+# import calendar
+# # print full calendar
+# print(calendar.calendar(2026, 2, 1, 5)) # year, width of each date column, number of lines per week, number of spaces between month columns
+
+# # Print only the month's calendar
+# year = 2026
+# month = 10
+
+# print(calendar.month(year, month))
+
+
+
+
+
+
+
+
+
                 # Map - Return an iterator that applies a function to every item of an iterable.
 
 
