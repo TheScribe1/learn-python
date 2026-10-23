@@ -342,6 +342,31 @@
 
 
 
+# # Parsing strings — Converting text into dates
+
+# from datetime import datetime
+
+# date_text = "23-10-2026"
+
+# result = datetime.strptime(date_text, "%d-%m-%Y") #     strptime means string parse time.
+
+# print(result)
+# # 2026-10-23 00:00:00
+# print(type(result))
+# # <class 'datetime.datetime'>
+
+
+# text = "23-10-2026 05:45 PM"
+# result = datetime.strptime(
+#     text, "%d-%m-%Y %I:%M %p"
+# )
+# print(result)
+# # 2026-10-23 17:45:00
+
+
+
+
+
 
 # import datetime
 
@@ -363,10 +388,97 @@
 
 # local_datetime = t.localtime() # local time of your country (UTC+6)
 # print("Local: ", local_datetime)
-# print("UTC: ", t.gmtime()) # UTC time
+# print("UTC: ", t.gmtime()) # converts current system time into UTC time structure
 
 # sec = t.time() # total number of seconds since January 1, 1970
 # print("Timestamp: ", sec)
+
+
+
+
+
+
+# Naive vs. aware datetime - (naive datetime has no time-zone information attached || aware datetime contains time-zone information sufficient to identify a particular moment in time)
+
+
+
+# from datetime import datetime, timezone
+
+# # Naive datetime
+# dt1 = datetime(2026, 10, 23, 15, 0)
+
+# # Aware datetime in UTC
+# dt2 = datetime(2026, 10, 23, 15, 0, tzinfo=timezone.utc) # UTC gives us a common reference time. We add or subtract the timezone offset to get another country's local time.
+
+# print(dt1)
+# # 2026-10-23 15:00:00
+
+# print(dt2)
+# # 2026-10-23 15:00:00+00:00
+# print(dt2.isoformat())
+
+
+
+
+
+# from datetime import datetime, timezone, timedelta
+
+# utc_now = datetime.now(timezone.utc) # gives current date time with utc
+
+# print(utc_now)
+
+# bd_fixed = timezone(timedelta(hours=6)) 
+
+# dt = datetime(2026, 10, 23, 15, 0, tzinfo=bd_fixed) # gives that time with timezone info +06:00
+# # dt = datetime.now(bd_fixed) # gives Bangladesh time
+
+# print(dt)
+
+
+
+
+
+
+# from datetime import datetime
+# from zoneinfo import ZoneInfo
+
+# # # with specific date time
+# # dhaka = datetime(
+# #     2026, 10, 23, 15, 0,
+# #     tzinfo=ZoneInfo("Asia/Dhaka")
+# # )
+
+# # with Your timezone
+# dhaka = datetime.now(ZoneInfo("Asia/Dhaka")) # Dhaka zone time
+# new_york = dhaka.astimezone(ZoneInfo("America/New_York")) # .astimezone() - Convert a datetime between time zones
+
+# print(dhaka)
+# print(new_york)
+
+# # # with UTC 
+# # utc_time = datetime.now(ZoneInfo("UTC"))
+
+# # dhaka_time = utc_time.astimezone(ZoneInfo("Asia/Dhaka"))
+# # newyork_time = utc_time.astimezone(ZoneInfo("America/New_York"))
+
+# # print(dhaka_time)
+# # print(newyork_time)
+
+
+
+
+# # ISO-formatted string
+# from datetime import date, datetime
+
+# d = date(2026, 10, 23)
+# dt = datetime(2026, 10, 23, 15, 30)
+
+# print(d.isoformat())
+# # 2026-10-23
+
+# print(dt.isoformat())
+# # 2026-10-23T15:30:00
+
 
 
 
@@ -380,6 +492,112 @@
 # month = 10
 
 # print(calendar.month(year, month))
+
+
+
+
+# # Check Leap Year
+# import calendar
+
+# print(calendar.isleap(2024))  # True
+# print(calendar.isleap(2025))  # False
+# print(calendar.isleap(2000))  # True
+# print(calendar.isleap(1900))  # False
+
+
+
+
+
+# import calendar
+
+# result = calendar.monthrange(2026, 10) # 2026, October
+
+# print(result)      # (3, 31) - This tells us October 2026 starts on a Thursday (3) and contains 31 days
+# print(result[0])   # 3
+# print(result[1])   # 31
+
+
+
+
+# # Find last day of a month
+# import calendar
+
+# year = 2026
+# month = 2
+
+# last_day = calendar.monthrange(year, month)[1]
+
+# print(last_day)  # 28
+
+
+
+
+
+
+# from datetime import datetime, timedelta        # timedelta represents a duration
+
+# now = datetime.now() 
+
+# minute = now + timedelta(minutes=30)
+# tomorrow = now + timedelta(days=1)
+# yesterday = now - timedelta(days=1)
+# next_week = now + timedelta(weeks=1)
+# duration = timedelta(days=2, hours=5, minutes=30)
+
+
+# print("Now:", now)
+# print("After 30 minutes:", minute)
+# print("Tomorrow:", tomorrow)
+# print("Yesterday:", yesterday)
+# print("Next week:", next_week)
+# print("Duration:", now + duration)
+
+
+
+
+
+#  Subtract two dates
+
+# from datetime import date
+
+# start = date(2026, 10, 1)
+# end = date(2026, 10, 23)
+
+# difference = end - start
+
+# print(difference)       # 22 days, 0:00:00
+# print(difference.days)  # 22
+
+
+
+
+# # Calculate someone age in days
+
+# from datetime import date
+
+# birthday = date(2005, 5, 10)
+# today = date(2026, 10, 23)
+
+# age_in_days = (today - birthday).days
+
+# print(age_in_days)
+
+
+
+
+
+
+# # Calculate the difference between two times
+
+# from datetime import datetime
+
+# start = datetime(2026, 10, 23, 9, 15)
+# end = datetime(2026, 10, 23, 17, 45)
+
+# duration = end - start
+
+# print(duration)                 # 8:30:00
+# print(duration.total_seconds()) # 30600.0
 
 
 
